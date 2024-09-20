@@ -10,7 +10,7 @@ from luizalabs.database.orm_registry import table_mapper
 class UserProductFavorites:
     __tablename__ = 'user_product_favorites'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, init=False)
     user_id: Mapped[int] = mapped_column(
         ForeignKey('users.id'), nullable=False
     )

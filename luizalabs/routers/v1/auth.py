@@ -3,7 +3,11 @@ from fastapi.security import OAuth2PasswordBearer
 
 from luizalabs.controlers.auth import AuthService
 from luizalabs.schemas.security import TokenSchema
-from luizalabs.utils.common_annotations import T_AuthToken, T_OAuth2Form, T_Session
+from luizalabs.utils.common_annotations import (
+    T_AuthToken,
+    T_OAuth2Form,
+    T_Session,
+)
 
 oauth2schema = OAuth2PasswordBearer(tokenUrl='auth/token')
 

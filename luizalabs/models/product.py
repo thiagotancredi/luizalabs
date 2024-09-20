@@ -11,7 +11,7 @@ from luizalabs.database.orm_registry import table_mapper
 class Product:
     __tablename__ = 'products'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, init=False)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
     price: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
     image: Mapped[str] = mapped_column(String(255), nullable=True)

@@ -1,7 +1,6 @@
 from http import HTTPStatus
 
-from fastapi import HTTPException, logger
-from fastapi_pagination import paginate
+from fastapi import HTTPException
 
 from luizalabs.controlers.auth import AuthService
 from luizalabs.crud.user import UserCRUD
@@ -33,9 +32,9 @@ class UserController(UserCRUD):
 
         return new_user
 
-    def list_users(self, params):
+    def list_users(self):
         list_of_users = self.get_all_users()
-        return paginate(list_of_users, params)
+        return list_of_users
 
     def get_user(self, user_id):
         user = self.get_user_by_id(user_id)

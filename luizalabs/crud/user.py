@@ -1,3 +1,4 @@
+from fastapi_pagination.ext.sqlalchemy import paginate
 from sqlalchemy import select
 
 from luizalabs.models.user import User
@@ -8,8 +9,8 @@ class UserCRUD:
         self.session = session
 
     def get_all_users(self):
-        users_db = self.session.scalars(select(User)).all()
-        return users_db
+        stmt = select(User)
+        return paginate(self.session, stmt)
 
     def get_user_by_email(self, email):
         user_db = self.session.scalar(select(User).where(User.email == email))
