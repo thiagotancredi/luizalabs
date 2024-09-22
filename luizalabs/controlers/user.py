@@ -52,6 +52,13 @@ class UserController(UserCRUD):
                 detail='Not enough permissions',
             )
 
+        user_email_exists = self.get_user_by_email(payload.email)
+        if user_email_exists and (user_email_exists.id != user_logged.id):
+            raise HTTPException(
+                status_code=HTTPStatus.BAD_REQUEST,
+                detail='Email already exists',
+            )
+
         with UnitOfWork(self.session):
             user_logged.username = payload.username
             user_logged.email = payload.email

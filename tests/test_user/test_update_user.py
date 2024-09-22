@@ -123,3 +123,25 @@ def test_update_unauthenticated_user(
 
     assert response.status_code == HTTPStatus.UNAUTHORIZED
     assert response.json() == {'detail': 'Not authenticated'}
+
+def test_update_user_with_existing_email(
+        client,
+        authenticated_user,
+        other_user
+):
+    user_id = authenticated_user['user']['id']
+    access_token = authenticated_user['access_token']
+    new_data_user = UserFactory()
+
+    response = client.put(
+        f'{BASE_URL_USER}{user_id}',
+        json={
+            'username': new_data_user.username,
+            'email': other_user['email'],
+            'password': new_data_user.password,
+        },
+        headers={'Authorization': f'Bearer {access_token}'},
+    )
+
+    assert response.status_code == HTTPStatus.BAD_REQUEST
+    assert response.json() == {'detail': 'Email already exists'}
