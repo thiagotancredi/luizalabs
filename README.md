@@ -104,7 +104,7 @@ Essas variáveis serão usadas para a conexão com o banco de dados e para a aut
 
 ## Testes
 
-Para rodar os testes da aplicação:
+Para rodar os testes da aplicação, você deve estar na pasta raiz do projeto (a pasta luizalabs), e não dentro de subpastas como luizalabs/luizalabs. Execute os seguintes comandos na pasta raiz:
 
 ```bash
 poetry shell
