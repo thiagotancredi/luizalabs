@@ -1,3 +1,4 @@
+
 ---
 
 # Projeto API de Favoritos
@@ -151,15 +152,11 @@ Para acessar as rotas protegidas, siga os passos abaixo:
 
 1. Acesse a documentação no Swagger UI (`/docs`).
 2. Na interface, vá até a rota `POST /luizalabs/v1/users` e crie um novo usuário.
-
-
 3. Após criar um usuário, clique no botão **"Authorize"** no canto superior direito da interface Swagger UI.
 4. Um pop-up será exibido, onde você deverá inserir suas credenciais:
 
-   - **username**: Seu nome de usuário.
+   - **username**: Seu email.
    - **password**: Sua senha.
    - **client_id** e **client_secret**: Esses campos podem ser ignorados, pois utilizamos apenas `username` e `password`.
-
-5. Após preencher as informações, clique em **"Authorize"**. Uma vez autenticado, você poderá acessar as rotas protegidas da API diretamente pela interface.
 
 ---
