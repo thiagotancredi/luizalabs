@@ -28,28 +28,30 @@ class UserProductFavoriteController(UserProductFavoriteCRUD, ProductCRUD):
         self.session.add(product_favorite)
 
     def toggle_favorite(self, user_logged, payload):
-        alredy_product_favorite = self.get_user_product_favorite(
-            user_logged.id, payload.product_id
-        )
+        check_exist_product = self.get_product_by_id(payload.product_id)
 
-        with UnitOfWork(self.session):
-            if alredy_product_favorite:
-                self.remove_favorite(alredy_product_favorite)
-                msg = 'Product Removed Succesfuly'
-            elif not alredy_product_favorite:
-                check_exist_product = self.get_product_by_id(
-                    payload.product_id
-                )
+        if check_exist_product:
+            alredy_product_favorite = self.get_user_product_favorite(
+                user_logged.id, payload.product_id
+            )
 
-                if check_exist_product:
-                    self.create_favorite(payload, user_logged)
-                    msg = 'Successful Favorite Product'
-                else:
-                    raise HTTPException(
-                        HTTPStatus.UNPROCESSABLE_ENTITY,
-                        detail='Product Not Exists',
+            with UnitOfWork(self.session):
+                if alredy_product_favorite:
+                    self.remove_favorite(alredy_product_favorite)
+                    msg = 'Product Removed Successfully'
+                elif not alredy_product_favorite:
+                    check_exist_product = self.get_product_by_id(
+                        payload.product_id
                     )
+                    if check_exist_product:
+                        self.create_favorite(payload, user_logged)
+                        msg = 'Successfully Favorite Product'
 
-            self.session.commit()
+                self.session.commit()
+        else:
+            raise HTTPException(
+                HTTPStatus.UNPROCESSABLE_ENTITY,
+                detail='Product Not Exists',
+            )
 
         return msg

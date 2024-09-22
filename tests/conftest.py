@@ -44,4 +44,5 @@ pytest_plugins = [
     "tests.fixtures.auth_fixture",
     "tests.fixtures.product_fixture",
     "tests.fixtures.user_fixture",
+    "tests.fixtures.user_product_favorite_fixture",
 ]

@@ -12,6 +12,6 @@ v1_routers.include_router(user_router, prefix='/users', tags=['user'])
 v1_routers.include_router(product_route, prefix='/products', tags=['product'])
 v1_routers.include_router(
     user_product_favorite_router,
-    prefix='/user_product_favorite_router',
+    prefix='/user_product_favorites',
     tags=['User Product Favorite'],
 )

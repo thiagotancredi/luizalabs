@@ -21,7 +21,7 @@ router = APIRouter()
 
 @router.patch(
     '/',
-    status_code=HTTPStatus.CREATED,
+    status_code=HTTPStatus.OK,
     response_model=ToggleFavoriteSchemaPublic,
     summary='This route adds or removes the product from favorites',
 )

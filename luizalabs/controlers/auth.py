@@ -37,7 +37,7 @@ class AuthService:
             if not user_identifier:
                 raise auth_exception
             token_info = TokenDataSchema(username=user_identifier)
-        except (DecodeError):
+        except DecodeError:
             raise auth_exception
         except ExpiredSignatureError:
             raise auth_exception
