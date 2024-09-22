@@ -105,3 +105,21 @@ def test_update_user_without_password(client, authenticated_user):
     assert (
         response.json()['detail'][0]['input']['email'] == new_data_user.email
     )
+
+
+def test_update_unauthenticated_user(
+    client, authenticated_user
+):
+    user_id = authenticated_user['user']['id']
+    new_data_user = UserFactory()
+    response = client.put(
+        f'{BASE_URL_USER}{user_id}',
+        json={
+            'username': new_data_user.username,
+            'email': new_data_user.email,
+            'password': new_data_user.password,
+        },
+    )
+
+    assert response.status_code == HTTPStatus.UNAUTHORIZED
+    assert response.json() == {'detail': 'Not authenticated'}

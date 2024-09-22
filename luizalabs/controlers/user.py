@@ -1,10 +1,12 @@
 from http import HTTPStatus
 
 from fastapi import HTTPException
+from sqlalchemy import delete
 
 from luizalabs.controlers.auth import AuthService
 from luizalabs.crud.user import UserCRUD
 from luizalabs.models.user import User
+from luizalabs.models.user_product_favorite import UserProductFavorites
 from luizalabs.utils.unit_of_work import UnitOfWork
 
 
@@ -69,5 +71,10 @@ class UserController(UserCRUD):
             )
 
         with UnitOfWork(self.session):
+            stmt = delete(UserProductFavorites).where(
+                UserProductFavorites.user_id == user_logged.id
+            )
+            self.session.execute(stmt)
+            self.session.commit()
             self.session.delete(user_logged)
             self.session.commit()

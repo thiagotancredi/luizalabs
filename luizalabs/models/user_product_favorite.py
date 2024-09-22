@@ -12,7 +12,7 @@ class UserProductFavorites:
 
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
     user_id: Mapped[int] = mapped_column(
-        ForeignKey('users.id'), nullable=False
+        ForeignKey('users.id', ondelete='CASCADE'), nullable=False
     )
     product_id: Mapped[int] = mapped_column(
         ForeignKey('products.id'), nullable=False
