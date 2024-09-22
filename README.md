@@ -47,10 +47,10 @@ Você deve ter o Docker e o Poetry instalados para rodar o projeto.
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-projeto.git
-   cd seu-projeto
+   cd luizalabs
    ```
 
-2. Dentro da pasta `luizalabs`, crie o arquivo `.env` com as seguintes variáveis de ambiente:
+2. Crie o arquivo `.env` na raiza do repositório, com as seguintes variáveis de ambiente:
    ```bash
    touch luizalabs/.env
    ```
