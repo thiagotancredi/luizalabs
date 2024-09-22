@@ -123,17 +123,7 @@ Após rodar os testes com cobertura, um relatório em HTML será gerado na pasta
    cd htmlcov
    ```
 
-2. Abra o arquivo `index.html` no seu navegador preferido. Você pode usar um comando como:
-
-   - **Linux/macOS:**
-     ```bash
-     xdg-open index.html
-     ```
-
-   - **Windows (cmd):**
-     ```bash
-     start index.html
-     ```
+2. Abra o arquivo `index.html` no seu navegador preferido.
 
 O relatório exibirá a cobertura do código-fonte em termos de linhas cobertas por testes e trechos que não foram testados.
 
