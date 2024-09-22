@@ -46,7 +46,7 @@ Você deve ter o Docker e o Poetry instalados para rodar o projeto.
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/seu-projeto.git
+   git clone https://github.com/thiagotancredi/luizalabs.git
    cd luizalabs
    ```
 
