@@ -28,7 +28,6 @@ class UserController(UserCRUD):
         with UnitOfWork(self.session):
             self.session.add(new_user)
             self.session.commit()
-            self.session.refresh(new_user)
 
         return new_user
 
@@ -59,7 +58,6 @@ class UserController(UserCRUD):
             )
 
             self.session.commit()
-            self.session.refresh(user_logged)
 
         return user_logged
 

@@ -1,12 +1,10 @@
-from decimal import Decimal
-
 from pydantic import BaseModel, ConfigDict
 
 
 class ProductSchemaPublic(BaseModel):
     id: int
     title: str
-    price: Decimal
+    price: float
     image: str
     brand: str
     reviewScore: float

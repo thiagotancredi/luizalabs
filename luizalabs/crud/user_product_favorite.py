@@ -12,8 +12,10 @@ class UserProductFavoriteCRUD:
     def get_all_product_favorites(self, user_id: int):
         stmt = (
             select(Product)
-            .join(UserProductFavorites, 
-                  UserProductFavorites.product_id == Product.id)
+            .join(
+                UserProductFavorites,
+                UserProductFavorites.product_id == Product.id,
+            )
             .where(UserProductFavorites.user_id == user_id)
         )
         return paginate(self.session, stmt)

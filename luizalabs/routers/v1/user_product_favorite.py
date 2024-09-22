@@ -9,7 +9,7 @@ from luizalabs.controlers.user_product_favorite import (
 from luizalabs.schemas.product import ProductSchemaPublic
 from luizalabs.schemas.user_product_favorite import (
     ToggleFavoriteSchemaPublic,
-    UserProductFavoriteSchema
+    UserProductFavoriteSchema,
 )
 from luizalabs.utils.common_annotations import (
     T_Session,

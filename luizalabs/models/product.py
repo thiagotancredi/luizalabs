@@ -1,5 +1,4 @@
 from datetime import datetime
-from decimal import Decimal
 
 from sqlalchemy import Numeric, String, func
 from sqlalchemy.orm import Mapped, mapped_column
@@ -13,7 +12,7 @@ class Product:
 
     id: Mapped[int] = mapped_column(primary_key=True, init=False)
     title: Mapped[str] = mapped_column(String(255), nullable=False)
-    price: Mapped[Decimal] = mapped_column(Numeric(10, 2), nullable=False)
+    price: Mapped[float] = mapped_column(Numeric(10, 2), nullable=False)
     image: Mapped[str] = mapped_column(String(255), nullable=True)
     brand: Mapped[str] = mapped_column(String(100), nullable=False)
     reviewScore: Mapped[float] = mapped_column(nullable=True)
